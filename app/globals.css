@@ -16,14 +16,47 @@
   }
 }
 
+/* Apply the torchlight effect */
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  margin: 0;
+  font-family: sans-serif;
+  background-color: black;
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(0,0,0,1) 60%);
+  color: white;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+/* Apply general button styles */
+
+button {
+  transition: transform 0.2s ease-in-out;
+  background-color: #f6851b; /* MetaMask orange */
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+/* Specific styles for the Connect Wallet button */
+.connect-wallet-button {
+  background-image: url('/images/metamask.png');
+  background-repeat: no-repeat;
+  background-size: 1.5rem;
+  background-position: 1rem center; /* Adjust position to fit padding */
+}
+
+
+
+
+button:hover,
+button:active {
+  transform: scale(1.1); /* Slightly enlarge the button on hover and click */
 }
 
 @layer utilities {
