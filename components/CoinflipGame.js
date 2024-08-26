@@ -34,7 +34,7 @@ function CoinflipGame({ contractAddress }) {
 
         // Show popup if negative amount is entered
         if (parseFloat(amount) <= 0) {
-            alert("Please enter a positive amount.");
+            alert("Please enter a positive amount of ETH.");
             return;
         }
 
@@ -85,7 +85,7 @@ function CoinflipGame({ contractAddress }) {
 
                     <input
                         type="number"
-                        placeholder="Enter amount"
+                        placeholder="Enter amount of ETH"
                         className="border rounded p-2 mb-4 text-black"
                         value={amount}
                         onChange={(e) => setAmount(e.target.value)}
