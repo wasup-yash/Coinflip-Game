@@ -67,9 +67,12 @@ function CoinflipGame({ contractAddress }) {
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-black">
             <h1 className="text-4xl font-bold mb-8 text-white text-center">Welcome to the Coinflip Game</h1>
+            <p className="mb-8 text-lg text-gray-300 text-center">
+                This is a simulated coin flip game. If luck is on your side, you might double your ETH; otherwise, you might lose it if you're unlucky.
+            </p>
             
             {!walletAddress ? (
-                <button
+                <button style={{ display: 'block', margin: '0 auto' }}
                     className="connect-wallet text-white font-bold py-2 px-4 rounded"
                     onClick={connectWallet}
                 >
@@ -88,13 +91,13 @@ function CoinflipGame({ contractAddress }) {
                     />
 
                     <div className="flex justify-center mb-4">
-                        <button
+                        <button 
                             className={`heads px-4 py-2 mx-2 rounded ${choice === true ? "bg-green-500" : "bg-gray-500"}`}
                             onClick={() => setChoice(true)}
                         >
                             Heads
                         </button>
-                        <button
+                        <button style={{ display: 'block', margin: '0 -20px 0px  auto', marginTop: -40 }}
                             className={`tails px-4 py-2 mx-2 rounded ${choice === false ? "bg-red-500" : "bg-gray-500"}`}
                             onClick={() => setChoice(false)}
                         >
@@ -102,7 +105,7 @@ function CoinflipGame({ contractAddress }) {
                         </button>
                     </div>
 
-                    <button
+                    <button style={{ display: 'block', margin: '0 auto' }}
                         className="flip-coin bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded"
                         onClick={handleFlip}
                     >
