@@ -1,13 +1,14 @@
 /* styles/globals.css */
 body {
   margin: 0;
-  font-family: sans-serif;
-  background-color: black;
-  color: white;
+  font-family: 'Inter', sans-serif;
+  background-color: #294d7b; /* Dark background */
+  color: #f3f4f6; /* Light text */
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-image: radial-gradient(circle at center, #43536b, #2b4350 70%);
 }
 
 h1 {
@@ -15,18 +16,22 @@ h1 {
   font-weight: bold;
   margin-bottom: 2rem;
   text-align: center;
+  color: #d6dcdc; /* MetaMask orange */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 button {
-  transition: transform 0.2s ease-in-out;
-  color: white;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  color: #f3f4f6; /* Light text */
   font-weight: bold;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: none;
 }
 
 button.connect-wallet {
-  background-color: #007bff; /* Blue color for "Connect Wallet" */
+  background-color: #007bff; /* Blue for "Connect Wallet" */
 }
 
 button.heads {
@@ -37,7 +42,40 @@ button.tails {
   background-color: #dc3545; /* Red for "Tails" */
 }
 
+button.flip-coin {
+  background-color: #f5a623; /* Yellow for "Flip Coin" */
+}
+
 button:hover,
 button:active {
   transform: scale(1.1);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+input {
+  background-color: #374151;
+  border: 2px solid #4b5563;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  color: #f3f4f6;
+  width: 100%;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+p {
+  margin: 1rem 0;
+  font-size: 1.25rem;
+  color: #f3f4f6;
+  text-align: center;
+}
+
+.mt-4.text-xl.font-semibold {
+  color: #83b3f5;
 }

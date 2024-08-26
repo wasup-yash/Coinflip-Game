@@ -1,5 +1,6 @@
 import CoinflipGame from '../components/CoinflipGame';
 
+
 export default function Home() {
     return (
         <div>

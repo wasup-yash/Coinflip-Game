@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@openzeppelin/contracts": "^5.0.2",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.14",
     "ethers": "^6.13.2",
     "next": "14.2.6",
     "react": "^18",

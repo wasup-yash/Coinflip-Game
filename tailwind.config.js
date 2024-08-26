@@ -1,25 +1,31 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "torchlight": "radial-gradient(circle at center, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 1) 70%)",
+      colors: {
+        primary: '#1f2937', // Dark background
+        secondary: '#f3f4f6', // Light text
+        accent: '#f6851b', // MetaMask orange
+        success: '#28a745', // Green
+        danger: '#dc3545', // Red
+        info: '#007bff', // Blue for buttons
       },
-      keyframes: {
-        pop: {
-          '0%, 100%': { transform: 'scale(0)' },
-          '50%': { transform: 'scale(1)' },
-        },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
       },
-      animation: {
-        pop: 'pop 0.5s ease-out forwards',
+      boxShadow: {
+        glow: '0 0 10px 0 rgba(255, 255, 255, 0.5)',
+      },
+      borderRadius: {
+        'xl': '1rem',
       },
     },
   },
-  plugins: [],
-};
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+  ],
+}

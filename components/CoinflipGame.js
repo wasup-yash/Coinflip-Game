@@ -1,5 +1,5 @@
 "use client";
-
+import '../app/globals.css';
 import { useState } from 'react';
 import { ethers } from 'ethers';
 
@@ -32,6 +32,12 @@ function CoinflipGame({ contractAddress }) {
     const handleFlip = async () => {
         if (!signer || !contractAddress || !amount || choice === null) return;
 
+        // Show popup if negative amount is entered
+        if (parseFloat(amount) <= 0) {
+            alert("Please enter a positive amount.");
+            return;
+        }
+
         try {
             const contract = new ethers.Contract(contractAddress, [
                 "function flip(uint256 _amount, bool _choice) public",
@@ -39,13 +45,19 @@ function CoinflipGame({ contractAddress }) {
 
             const randomResult = Math.random() < 0.5;
 
+            const amountInEther = ethers.parseUnits(amount, 18);
+            let displayResult;
+
             if (choice === randomResult) {
-                setResult("You Win! 🎉 Your amount is doubled.");
+                const doubledAmount = parseFloat(amount) * 2;
+                displayResult = `You Win! 🎉 Your amount is doubled to ${doubledAmount} ETH.`;
             } else {
-                setResult("You Lose. 😞 Better luck next time.");
+                displayResult = `You Lose. 😞 You lost ${amount} ETH. Better luck next time.`;
             }
 
-            const tx = await contract.flip(ethers.parseUnits(amount, 18), choice);
+            setResult(displayResult);
+
+            const tx = await contract.flip(amountInEther, choice);
             await tx.wait();
         } catch (error) {
             console.error("Error executing flip:", error);
@@ -91,7 +103,7 @@ function CoinflipGame({ contractAddress }) {
                     </div>
 
                     <button
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                        className="flip-coin bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded"
                         onClick={handleFlip}
                     >
                         Flip Coin
