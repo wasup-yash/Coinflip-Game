@@ -1,66 +1,43 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-/* Apply the torchlight effect */
+/* styles/globals.css */
 body {
   margin: 0;
   font-family: sans-serif;
   background-color: black;
-  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(0,0,0,1) 60%);
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 h1 {
   font-size: 4rem;
   font-weight: bold;
   margin-bottom: 2rem;
+  text-align: center;
 }
-
-/* Apply general button styles */
 
 button {
   transition: transform 0.2s ease-in-out;
-  background-color: #f6851b; /* MetaMask orange */
   color: white;
   font-weight: bold;
   padding: 0.5rem 1rem;
-  border: none;
-  cursor: pointer;
+  border-radius: 0.5rem;
 }
 
-/* Specific styles for the Connect Wallet button */
-.connect-wallet-button {
-  background-image: url('/images/metamask.png');
-  background-repeat: no-repeat;
-  background-size: 1.5rem;
-  background-position: 1rem center; /* Adjust position to fit padding */
+button.connect-wallet {
+  background-color: #007bff; /* Blue color for "Connect Wallet" */
 }
 
+button.heads {
+  background-color: #28a745; /* Green for "Heads" */
+}
 
-
+button.tails {
+  background-color: #dc3545; /* Red for "Tails" */
+}
 
 button:hover,
 button:active {
-  transform: scale(1.1); /* Slightly enlarge the button on hover and click */
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+  transform: scale(1.1);
 }
