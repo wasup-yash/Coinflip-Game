@@ -30,6 +30,10 @@ button {
   border: none;
 }
 
+button.scale-110 {
+  transform: scale(1.1); /* Make the button larger */
+}
+
 button.connect-wallet {
   background-color: #007bff; /* Blue for "Connect Wallet" */
 }

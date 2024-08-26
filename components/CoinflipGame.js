@@ -10,7 +10,7 @@ function CoinflipGame({ contractAddress }) {
     const [walletAddress, setWalletAddress] = useState(null);
     const [provider, setProvider] = useState(null);
     const [signer, setSigner] = useState(null);
-
+    const [activeButton, setActiveButton] = useState(null);
     const connectWallet = async () => {
         if (window.ethereum) {
             try {
@@ -59,6 +59,7 @@ function CoinflipGame({ contractAddress }) {
 
             const tx = await contract.flip(amountInEther, choice);
             await tx.wait();
+            setActiveButton(null);
         } catch (error) {
             console.error("Error executing flip:", error);
         }
@@ -92,14 +93,14 @@ function CoinflipGame({ contractAddress }) {
 
                     <div className="flex justify-center mb-4">
                         <button 
-                            className={`heads px-4 py-2 mx-2 rounded ${choice === true ? "bg-green-500" : "bg-gray-500"}`}
-                            onClick={() => setChoice(true)}
+                             className={`heads px-4 py-2 mx-2 rounded ${choice === true ? "bg-green-500" : "bg-gray-500"} ${activeButton === 'heads' ? 'scale-110' : ''}`}
+                             onClick={() => { setChoice(true); setActiveButton('heads'); }}
                         >
                             Heads
                         </button>
                         <button style={{ display: 'block', margin: '0 -20px 0px  auto', marginTop: -40 }}
-                            className={`tails px-4 py-2 mx-2 rounded ${choice === false ? "bg-red-500" : "bg-gray-500"}`}
-                            onClick={() => setChoice(false)}
+                            className={`tails px-4 py-2 mx-2 rounded ${choice === false ? "bg-red-500" : "bg-gray-500"} ${activeButton === 'tails' ? 'scale-110' : ''}`}
+                            onClick={() => { setChoice(false); setActiveButton('tails'); }}
                         >
                             Tails
                         </button>
